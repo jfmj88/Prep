@@ -58,7 +58,7 @@ function promedioResultadosTest(resultadosTest) {
   for ( var i = 0; i < resultadosTest.length; i++){
     suma = suma + resultadosTest[i];
   }
-    return suma / resultadosTest.lenght;
+    return suma / resultadosTest.length;
 }
 
 function numeroMasGrande(numeros) {
@@ -78,7 +78,13 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Tu código:
+if (arguments.length === 0) return 0;
 
+var argumentos = 1
+  for (var i = 0; i < arguments.length; i++) {
+     argumentos = argumentos * arguments[i];
+    }
+    return argumentos;
 }
 
 function cuentoElementos(arreglo){
@@ -111,16 +117,17 @@ function mesesDelAño(array) {
   // Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
   // Tu código:
 
-  var meses =[];
-    for( var i = 0; i < array.lenght; i++);
+  var meses = [];
+    for( var i = 0; i < array.length; i++) {
      if (array[i] === "Enero" || array[i] === "Marzo" || array[i] === "Noviembre") {
-      meses.push (array[i]);
+      meses.push(array[i]);
+  
+      }
     }
-    if (meses.lenght < 3){
-      return "No se encontraron los meses pedidos";
-      return meses;
-    }
-}
+    if (meses.length < 3) return "No se encontraron los meses pedidos";
+    return meses;
+  }
+
 
 function breakStatement(numero) {
   // Iterar en un bucle aumentando en 2 el numero recibido hasta un límite de 10 veces.
@@ -165,8 +172,8 @@ function crearGato(nombre, edad) {
   // Devuelve el objeto
   // Tu código:
 var gato = {
-  nombre: "nombre",
-  edad: "edad",
+  nombre: nombre,
+  edad: edad,
   meow: function (){
     return "Meow!";
 }
@@ -179,7 +186,8 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
-
+objeto[property] = null
+ return objeto
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -188,6 +196,8 @@ function invocarMetodo(objeto, metodo) {
   // Nada necesita ser devuelto ("returned")
   // Tu código:
   
+objeto [metodo] ()
+
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
@@ -195,6 +205,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
 
+ return objetoMisterioso.numeroMisterioso * 5
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -202,20 +213,31 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
+  delete objeto[unaPropiedad]
+  return objeto
 }
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-
+var objeto = {
+  nombre: nombre,
+  email:email,
+  password: password
+}
+return objeto; 
 }
 
 function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
-
+if (usuario.email) {
+  return true;
+} else {
+  return false;
+}
 }
 
 function tienePropiedad(objeto, propiedad) {
@@ -223,7 +245,11 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-
+if (objeto[propiedad]){
+  return true;
+} else {
+  return false;
+}
 }
 
 function actualizarPassword(usuario, nuevaPassword) {
@@ -231,6 +257,8 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Devuelve el objeto
   // Tu código:
 
+  usuario.password = nuevaPassword
+  return usuario;
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -238,7 +266,8 @@ function agregarAmigo(usuario, nuevoAmigo) {
   // Agrega "nuevoAmigo" al final de ese array
   // Devuelve el objeto "usuario"
   // Tu código:
-
+usuario.amigos.push(nuevoAmigo)
+  return usuario
 }
 
 function sumarLikesDeUsuario(usuario) {
